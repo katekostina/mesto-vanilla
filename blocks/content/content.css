@@ -1,5 +1,10 @@
 .content {
-    width: 69%;
+    width: 88%;
     margin: 0 auto;
-    border: 1px solid red;
+}
+
+@media screen and (min-width: 1025px) {
+    .content {
+        width: 69%;
+    }
 }

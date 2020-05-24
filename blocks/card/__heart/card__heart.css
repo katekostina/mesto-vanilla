@@ -1,0 +1,6 @@
+.card__heart {
+    background-image: url(../../../images/heart.svg);
+    width: 21px;
+    height: 18px;
+    color: #000;
+}

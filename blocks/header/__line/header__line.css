@@ -2,4 +2,6 @@
     border: none;
     border-top: 1px solid #545454;
     opacity: 0.7;
+    margin: 0;
+    width: 100%;
 }

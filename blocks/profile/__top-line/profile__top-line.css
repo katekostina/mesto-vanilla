@@ -1,3 +1,5 @@
 .profile__top-line {
-    
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
 }

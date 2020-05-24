@@ -1,3 +1,16 @@
 .profile__name {
-    
+    margin: 0;
+    font-family: 'Intel', 'Helvetica', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 27px;
+    line-height: 48px;
+    color: #fff;
+}
+
+@media screen and (min-width: 1025px) {
+    .profile__name {
+        font-size: 42px;
+        line-height: 56px;
+    }
 }

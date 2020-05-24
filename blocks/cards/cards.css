@@ -1,0 +1,15 @@
+.cards {
+    width: 100%;
+    margin: 0;
+    display: grid;
+    justify-content: space-around;
+    grid-row-gap: 20px;
+    grid-column-gap: 13px;
+    grid-template-columns: repeat(auto-fill, 282px);
+}
+
+@media screen and (min-width: 656px) {
+    .cards {
+        justify-content: space-between;
+    }
+}

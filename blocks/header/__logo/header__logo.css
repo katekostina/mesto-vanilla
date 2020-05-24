@@ -2,8 +2,17 @@
     background-image: url(../../../images/logo.svg);
     background-repeat: no-repeat;
     background-position: center;
-    width: 142.01px;
+    width: 142px;
     height: 33.4px;
-    padding-top: 45px;
-    padding-bottom: 40px;
+    padding-top: 28px;
+    padding-bottom: 32px;
+    margin-left: 27px;
+}
+
+@media screen and (min-width: 1025px) {
+    .header__logo {
+        padding-top: 45px;
+        padding-bottom: 40px;
+        margin-left: 0px;
+    }
 }
