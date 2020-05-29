@@ -1,0 +1,13 @@
+.edit-profile__close-button {
+    position: absolute;
+    top: -33px;
+    left: 100%;
+    background-image: url(../../../images/close-button.svg);
+    width: 33px;
+    height: 33px;
+}
+
+.edit-profile__close-button:hover {
+    opacity: 0.6;
+    cursor: pointer;
+}

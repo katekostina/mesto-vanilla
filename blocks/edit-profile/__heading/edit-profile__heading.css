@@ -1,0 +1,9 @@
+.edit-profile__heading {
+    margin: 0 0 15px;
+    font-family: 'Inter', 'Helvetics', sans-serif;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 29px;
+    color: #000;
+}
