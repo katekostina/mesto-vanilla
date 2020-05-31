@@ -18,7 +18,7 @@
     width: 250px;
 }
 
-@media scren and (min-width: 360px) {
+@media screen and (min-width: 360px) {
     .edit-profile__form {
         width: 282px;
     }
