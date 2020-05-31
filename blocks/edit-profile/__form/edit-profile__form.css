@@ -8,12 +8,24 @@
     top: 50%;
     transform: translate(-50%, -50%);
 
-    width: 430px;
-    min-height: 330px;
-    padding: 36px;
-    box-sizing: border-box;
-
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    min-height: 330px;
+    padding: 36px;
+    box-sizing: border-box;
+    width: 250px;
+}
+
+@media scren and (min-width: 360px) {
+    .edit-profile__form {
+        width: 282px;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .edit-profile__form {
+        width: 430px;
+    }
 }
