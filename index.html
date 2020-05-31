@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./vendor/normalize.css">
     <link rel="stylesheet" href="./pages/index.css">
     <title>Mesto</title>
 </head>
@@ -15,68 +14,58 @@
     <main class="content">
         <section class="profile">
             <div class="profile__info">
-                <img src="./images/avatar.jpg" alt="" class="profile__avatar">
+                <img src="./images/avatar.jpg" alt="Аватар пользователя" class="profile__avatar">
                 <div class="profile__description">
                     <div class="profile__top-line">
                         <h1 class="profile__name">Жак-Ив Кусто</h1>
-                        <div class="profile__edit-button"></div>
+                        <button class="profile__edit-button"></button>
                     </div>
                     <p class="profile__caption">Исследователь океана</p>
                 </div>
             </div>
-            <div class="profile__add-button"></div>
-        </section>
-        <section class="edit-profile">
-            <div class="edit-profile__overlay"></div>
-            <form class="edit-profile__form" action="" method="">
-                <div class="edit-profile__close-button"></div>
-                <h2 class="edit-profile__heading">Редактировать профиль</h2>
-                <input class="edit-profile__input" type="text" name="profilename" id="profilename" value="Жак-Ив Кусто">
-                <input class="edit-profile__input" type="text" name="profilecaption" id="profilecaption" value="Исследователь океана">
-                <button class="edit-profile__submit-button" type="submit">Сохранить</button>
-            </form>
+            <button class="profile__add-button"></button>
         </section>
         <section class="cards">
             <figure class="card">
                 <img src="./images/st-petersburg.jpg" alt="Санкт-Петербург" class="card__image">
                 <figcaption class="card__caption">
-                    <h2 class="card__name">Санкт-Петербург</h2>
-                    <div class="card__heart"></div>
+                    <p class="card__name">Санкт-Петербург</p>
+                    <button class="card__heart"></button>
                 </figcaption>
             </figure>
             <figure class="card">
                 <img src="./images/sochi.jpg" alt="Сочи" class="card__image">
                 <figcaption class="card__caption">
-                    <h2 class="card__name">Сочи</h2>
-                    <div class="card__heart"></div>
+                    <p class="card__name">Сочи</p>
+                    <button class="card__heart"></button>
                 </figcaption>
             </figure>
             <figure class="card">
                 <img src="./images/moscow.jpeg" alt="Москва" class="card__image">
                 <figcaption class="card__caption">
-                    <h2 class="card__name">Москва</h2>
-                    <div class="card__heart"></div>
+                    <p class="card__name">Москва</p>
+                    <button class="card__heart"></button>
                 </figcaption>
             </figure>
             <figure class="card">
                 <img src="./images/kursk.jpg" alt="Курск" class="card__image">
                 <figcaption class="card__caption">
-                    <h2 class="card__name">Курск</h2>
-                    <div class="card__heart"></div>
+                    <p class="card__name">Курск</p>
+                    <button class="card__heart"></button>
                 </figcaption>
             </figure>
             <figure class="card">
                 <img src="./images/arkhyz.jpg" alt="Архыз" class="card__image">
                 <figcaption class="card__caption">
-                    <h2 class="card__name">Архыз</h2>
-                    <div class="card__heart"></div>
+                    <p class="card__name">Архыз</p>
+                    <button class="card__heart"></button>
                 </figcaption>
             </figure>
             <figure class="card">
                 <img src="./images/rostov.jpg" alt="Ростов" class="card__image">
                 <figcaption class="card__caption">
-                    <h2 class="card__name">Ростов</h2>
-                    <div class="card__heart"></div>
+                    <p class="card__name">Ростов</p>
+                    <button class="card__heart"></button>
                 </figcaption>
             </figure>
         </section>
@@ -86,6 +75,16 @@
             &copy; 2020 Mesto Russia
         </p>
     </footer>
-    <script src="script.js"></script>
+    <article class="edit-profile">
+        <div class="edit-profile__overlay"></div>
+        <form class="edit-profile__form" action="#" method="post" name="profileform">
+            <button class="edit-profile__close-button" type="button"></button>
+            <h2 class="edit-profile__heading">Редактировать профиль</h2>
+            <input class="edit-profile__input" type="text" name="profilename" id="profilename" value="">
+            <input class="edit-profile__input" type="text" name="profilecaption" id="profilecaption" value="">
+            <button class="edit-profile__submit-button" type="submit">Сохранить</button>
+        </form>
+    </article>
+    <script src="./scripts/script.js"></script>
 </body>
 </html>

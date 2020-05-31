@@ -5,6 +5,9 @@
     height: 50px;
     background-size: 282px 50px;
     margin-top: 35px;
+    border: none;
+    background-color: transparent;
+    padding: 0;
 }
 
 @media screen and (min-width: 1025px) {
@@ -20,5 +23,9 @@
 .profile__add-button:hover {
     opacity: 0.6;
     cursor: pointer;
+}
+
+.profile__add-button:focus {
+    outline: none;
 }
 

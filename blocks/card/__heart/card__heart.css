@@ -1,6 +1,18 @@
 .card__heart {
+    border: none;
+    background-color: transparent;
+    padding: 0;
     background-image: url(../../../images/heart.svg);
     width: 21px;
     height: 18px;
     color: #000;
+}
+
+.card__heart:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.card__heart:focus {
+    outline: none;
 }

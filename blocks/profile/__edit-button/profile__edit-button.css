@@ -5,6 +5,9 @@
     background-repeat: no-repeat;
     background-size: 18px 18px;
     margin-left: 10px;
+    border: none;
+    background-color: transparent;
+    padding: 0;
 }
 
 @media screen and (min-width: 1025px) {
@@ -19,4 +22,8 @@
 .profile__edit-button:hover {
     opacity: 0.6;
     cursor: pointer;
+}
+
+.profile__edit-button:focus {
+    outline: none;
 }

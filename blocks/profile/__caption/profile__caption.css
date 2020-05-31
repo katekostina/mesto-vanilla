@@ -6,11 +6,27 @@
     font-size: 14px;
     line-height: 17px;
     color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 282px;
+}
+
+@media screen and (min-width: 656px) {
+    .profile__caption {
+        max-width: 350px;
+    }
 }
 
 @media screen and (min-width: 1025px) {
     .profile__caption {
         font-size: 18px;
         line-height: 22px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .profile__caption {
+        max-width: 500px;
     }
 }

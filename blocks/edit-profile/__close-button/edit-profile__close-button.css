@@ -5,9 +5,16 @@
     background-image: url(../../../images/close-button.svg);
     width: 33px;
     height: 33px;
+    border: none;
+    background-color: transparent;
+    padding: 0;
 }
 
 .edit-profile__close-button:hover {
     opacity: 0.6;
     cursor: pointer;
+}
+
+.edit-profile__close-button:focus {
+    outline: none;
 }

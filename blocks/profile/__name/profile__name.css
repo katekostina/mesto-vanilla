@@ -3,14 +3,31 @@
     font-family: 'Intel', 'Helvetica', sans-serif;
     font-style: normal;
     font-weight: 500;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     font-size: 27px;
     line-height: 48px;
-    color: #fff;
+    max-width: 254px;
 }
+
+@media screen and (min-width: 656px) {
+    .profile__name {
+        max-width: 350px;
+    }
+}
+
 
 @media screen and (min-width: 1025px) {
     .profile__name {
         font-size: 42px;
         line-height: 56px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .profile__name {
+        max-width: 500px;
     }
 }
