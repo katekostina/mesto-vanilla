@@ -8,16 +8,13 @@ const nameInput = document.querySelector('#profilename');
 const captionInput = document.querySelector('#profilecaption');
 
 function toggleEdit() {
-    let popupShown = editProfile.classList.contains('edit-profile_shown'); 
-    if (popupShown) {
+    if (editProfile.classList.contains('edit-profile_shown')) {
         editProfile.classList.remove('edit-profile_shown');
         return;
-    } else {
-        editProfile.classList.add('edit-profile_shown');
-        nameInput.value = profileName.textContent;
-        captionInput.value = profileCaption.textContent;
-        return;
-    }
+    } 
+    editProfile.classList.add('edit-profile_shown');
+    nameInput.value = profileName.textContent;
+    captionInput.value = profileCaption.textContent;
 }
 
 function saveEdited(event) {
