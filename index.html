@@ -26,48 +26,6 @@
             <button class="profile__add-button" type="button"></button>
         </section>
         <section class="cards">
-            <figure class="card">
-                <img src="./images/st-petersburg.jpg" alt="Санкт-Петербург" class="card__image">
-                <figcaption class="card__caption">
-                    <p class="card__name">Санкт-Петербург</p>
-                    <button class="card__heart" type="button"></button>
-                </figcaption>
-            </figure>
-            <figure class="card">
-                <img src="./images/sochi.jpg" alt="Сочи" class="card__image">
-                <figcaption class="card__caption">
-                    <p class="card__name">Сочи</p>
-                    <button class="card__heart" type="button"></button>
-                </figcaption>
-            </figure>
-            <figure class="card">
-                <img src="./images/moscow.jpeg" alt="Москва" class="card__image">
-                <figcaption class="card__caption">
-                    <p class="card__name">Москва</p>
-                    <button class="card__heart" type="button"></button>
-                </figcaption>
-            </figure>
-            <figure class="card">
-                <img src="./images/kursk.jpg" alt="Курск" class="card__image">
-                <figcaption class="card__caption">
-                    <p class="card__name">Курск</p>
-                    <button class="card__heart" type="button"></button>
-                </figcaption>
-            </figure>
-            <figure class="card">
-                <img src="./images/arkhyz.jpg" alt="Архыз" class="card__image">
-                <figcaption class="card__caption">
-                    <p class="card__name">Архыз</p>
-                    <button class="card__heart" type="button"></button>
-                </figcaption>
-            </figure>
-            <figure class="card">
-                <img src="./images/rostov.jpg" alt="Ростов" class="card__image">
-                <figcaption class="card__caption">
-                    <p class="card__name">Ростов</p>
-                    <button class="card__heart" type="button"></button>
-                </figcaption>
-            </figure>
         </section>
     </main>
     <footer class="footer">
@@ -75,16 +33,40 @@
             &copy; 2020 Mesto Russia
         </p>
     </footer>
-    <article class="edit-profile">
-        <div class="edit-profile__overlay"></div>
-        <form class="edit-profile__form" action="#" method="post" name="profileform">
-            <button class="edit-profile__close-button" type="button"></button>
-            <h2 class="edit-profile__heading">Редактировать профиль</h2>
-            <input class="edit-profile__input" type="text" name="profilename" id="profilename" value="">
-            <input class="edit-profile__input" type="text" name="profilecaption" id="profilecaption" value="">
-            <button class="edit-profile__submit-button" type="submit">Сохранить</button>
+
+    <template id="card-template">
+        <figure class="card">
+            <button class="card__delete" type="button"></button>
+            <img src="" alt="" class="card__image">
+            <figcaption class="card__caption">
+                <p class="card__name"></p>
+                <button class="card__heart" type="button"></button>
+            </figcaption>
+        </figure>
+    </template>
+
+    <article class="popup" id="editprofilepopup">
+        <div class="popup__overlay"></div>
+        <form class="popup__form" action="#" method="post" name="profileform">
+            <button class="popup__close-button" id="closeeditbutton" type="button"></button>
+            <h2 class="popup__heading">Редактировать профиль</h2>
+            <input class="popup__input" type="text" name="profilename" id="profilename" value="">
+            <input class="popup__input" type="text" name="profilecaption" id="profilecaption" value="">
+            <button class="popup__submit-button" type="submit" id="saveeditbutton">Сохранить</button>
         </form>
     </article>
+
+    <article class="popup" id="placepopup">
+        <div class="popup__overlay"></div>
+        <form class="popup__form" action="#" method="post" name="placeform">
+            <button class="popup__close-button" type="button" id="closeplacebutton"></button>
+            <h2 class="popup__heading">Новое место</h2>
+            <input class="popup__input" type="text" name="placename" id="placename" value="" placeholder="Название">
+            <input class="popup__input" type="url" name="placeurl" id="placeurl" value="" placeholder="Ссылка на картинку">
+            <button class="popup__submit-button" type="submit" id="saveplacebutton">Создать</button>
+        </form>
+    </article>
+
     <script src="./scripts/script.js"></script>
 </body>
 </html>

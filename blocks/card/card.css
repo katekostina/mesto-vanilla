@@ -2,6 +2,7 @@
 @import url(./__caption/card__caption.css);
 @import url(./__name/card__name.css);
 @import url(./__heart/card__heart.css);
+@import url(./__delete/card__delete.css);
 
 .card {
     margin: 0;
@@ -9,4 +10,5 @@
     border-radius: 10px;
     width: 282px;
     height: 362px;
+    position: relative;
 }

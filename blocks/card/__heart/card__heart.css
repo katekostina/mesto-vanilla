@@ -10,7 +10,7 @@
 
 .card__heart:hover {
     cursor: pointer;
-    transform: scale(1.1);
+    opacity: 0.6;
 }
 
 .card__heart:focus {

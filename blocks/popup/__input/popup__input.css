@@ -1,4 +1,4 @@
-.edit-profile__input {
+.popup__input {
     font-family: 'Inter', 'Helvetica', sans-serif;
     font-style: normal;
     font-weight: normal;
@@ -8,4 +8,13 @@
     border: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     outline: none;
+}
+
+.popup__input::placeholder {
+    font-family: 'Inter', 'Helvetica', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: #C4C4C4;
 }

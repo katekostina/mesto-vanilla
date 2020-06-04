@@ -1,0 +1,10 @@
+@import url(./__overlay/popup__overlay.css);
+@import url(./__form/popup__form.css);
+@import url(./__close-button/popup__close-button.css);
+@import url(./__heading/popup__heading.css);
+@import url(./__input/popup__input.css);
+@import url(./__submit-button/popup__submit-button.css);
+
+.popup {
+    display: none;
+}

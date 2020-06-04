@@ -1,4 +1,4 @@
-.edit-profile__close-button {
+.popup__close-button {
     position: absolute;
     top: -33px;
     left: 100%;
@@ -10,11 +10,11 @@
     padding: 0;
 }
 
-.edit-profile__close-button:hover {
+.popup__close-button:hover {
     opacity: 0.6;
     cursor: pointer;
 }
 
-.edit-profile__close-button:focus {
+.popup__close-button:focus {
     outline: none;
 }
