@@ -26,6 +26,7 @@
             <button class="profile__add-button" type="button"></button>
         </section>
         <section class="cards">
+
         </section>
     </main>
     <footer class="footer">
@@ -65,6 +66,15 @@
             <input class="popup__input" type="url" name="placeurl" id="placeurl" value="" placeholder="Ссылка на картинку">
             <button class="popup__submit-button" type="submit" id="saveplacebutton">Создать</button>
         </form>
+    </article>
+
+    <article class="image-popup" id="imagepopup">
+        <div class="image-popup__overlay"></div>
+        <figure class="image-popup__container">
+            <button class="image-popup__close-button" id="closeimagebutton" type="button"></button>
+            <img class="image-popup__image" src="#" alt="" id="imagepopupimage">
+            <figcaption class="image-popup__caption" id="imagepopupcaption"></figcaption>
+        </figure>
     </article>
 
     <script src="./scripts/script.js"></script>

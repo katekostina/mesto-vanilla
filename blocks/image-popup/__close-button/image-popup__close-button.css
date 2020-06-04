@@ -1,7 +1,7 @@
-.popup__close-button {
+.image-popup__close-button {
     position: absolute;
-    top: -25px;
-    left: 100%;
+    top: -28px;
+    left: calc(100% + 3px);
     background-image: url(../../../images/close-button.svg);
     background-size: contain;
     width: 25px;
@@ -11,18 +11,19 @@
     padding: 0;
 }
 
-.popup__close-button:hover {
+.image-popup__close-button:hover {
     opacity: 0.6;
     cursor: pointer;
 }
 
-.popup__close-button:focus {
+.image-popup__close-button:focus {
     outline: none;
 }
 
 @media screen and (min-width: 600px) {
-    .popup__close-button {
-        top: -33px;
+    .image-popup__close-button {
+        top: -38px;
+        left: calc(100% + 5px);
         width: 33px;
         height: 33px;
     }

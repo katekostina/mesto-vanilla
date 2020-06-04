@@ -12,10 +12,10 @@
     flex-direction: column;
     justify-content: space-between;
 
-    min-height: 330px;
-    padding: 36px;
+    padding: 30px 20px;
     box-sizing: border-box;
-    width: 250px;
+    width: 240px;
+    min-height: 258px;
 }
 
 @media screen and (min-width: 360px) {
@@ -27,5 +27,7 @@
 @media screen and (min-width: 600px) {
     .popup__form {
         width: 430px;
+        min-height: 330px;
+        padding: 36px;
     }
 }

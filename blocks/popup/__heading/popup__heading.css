@@ -3,7 +3,14 @@
     font-family: 'Inter', 'Helvetics', sans-serif;
     font-style: normal;
     font-weight: 900;
-    font-size: 24px;
-    line-height: 29px;
+    font-size: 18px;
+    line-height: 22px;
     color: #000;
+}
+
+@media screen and (min-width: 600px) {
+    .popup__heading {
+        font-size: 24px;
+        line-height: 29px;
+    }
 }

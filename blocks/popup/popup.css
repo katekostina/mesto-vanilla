@@ -6,5 +6,7 @@
 @import url(./__submit-button/popup__submit-button.css);
 
 .popup {
-    display: none;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.2s, opacity 0.2s ease-in-out;
 }

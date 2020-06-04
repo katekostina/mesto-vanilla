@@ -1,48 +1,78 @@
-// https://www.dropbox.com/s/llz5f262xcqr5vd/yalta.jpg?dl=1
-// Render initial cards
-const cardsContainer = document.querySelector('.cards');
+// Initial cards
 const initialPlaces = [
     {
         name: 'Алтай',
-        link: 'https://www.dropbox.com/s/00pzwwq9rpezzin/altai.jpg?dl=1'
-    },
-    {
-        name: 'Байкал',
-        link: 'https://www.dropbox.com/s/asvpi3wqpsnodro/baikal.jpg?dl=1'
+        link: 'https://images.unsplash.com/photo-1564324738432-676df00ac9cd'
     },
     {
         name: 'Мурманск',
-        link: 'https://www.dropbox.com/s/2ewzcc0s03xjfyp/murmansk.jpg?dl=1'
+        link: 'https://images.unsplash.com/photo-1588358013128-d99f36f29de7'
+    },
+    {
+        name: 'Байкал',
+        link: 'https://images.unsplash.com/photo-1551845041-73527e65adc0'
     },
     {
         name: 'Архыз',
-        link: 'https://www.dropbox.com/s/8z4b3o8h05cgvbo/arkhyz.jpg?dl=1'
+        link: 'https://images.unsplash.com/photo-1499621401321-83004ade2347'
     },
     {
         name: 'Камчатка',
-        link: 'https://www.dropbox.com/s/y49ue6n41ftk47z/kamchatka.jpg?dl=1'
+        link: 'https://images.unsplash.com/photo-1577163081390-2ee254a42b2f'
     },
     {
         name: 'Никола-Ленивец',
-        link: 'https://www.dropbox.com/s/xcuoshuljlqo6wn/nikola.jpg?dl=1'
+        link: 'https://images.unsplash.com/photo-1566206895187-6a408b7fb2ef'
     }
 ];
+
+// Handle image popup
+const imagePopup = document.querySelector('#imagepopup');
+const imagePopupImage = document.querySelector('#imagepopupimage');
+const imagePopupCaption = document.querySelector('#imagepopupcaption');
+const closeImageButton = document.querySelector('#closeimagebutton');
+const transitionMilliseconds = 200;
+
+function toggleImagePopup(placeName, placeUrl) {
+    if (imagePopup.classList.contains('image-popup_shown')) {
+        imagePopup.classList.remove('image-popup_shown');
+        setTimeout(()=> { 
+            imagePopupImage.src = '';
+            imagePopupImage.alt = '';
+            imagePopupCaption.textContent = '';
+        }, transitionMilliseconds);
+        return;
+    } 
+    imagePopup.classList.add('image-popup_shown');
+    imagePopupImage.src = placeUrl;
+    imagePopupImage.alt = placeName;
+    imagePopupCaption.textContent = placeName;
+}
+closeImageButton.addEventListener('click', toggleImagePopup)
+
+// Add new card 
+const cardsContainer = document.querySelector('.cards');
 
 function addCard(placeName, placeUrl){
     const cardTemplate = document.querySelector('#card-template').content;
     const newCard = cardTemplate.cloneNode(true);
+    const cardImage = newCard.querySelector('.card__image')
     newCard.querySelector('.card__name').textContent = placeName;
-    newCard.querySelector('.card__image').src = placeUrl;
-    newCard.querySelector('.card__image').alt = placeName;
     newCard.querySelector('.card__heart').addEventListener('click', function (evt) { 
         evt.target.classList.toggle('card__heart_active');
       });
     newCard.querySelector('.card__delete').addEventListener('click', function (evt) {
         evt.target.parentElement.remove();
     });
+    cardImage.src = placeUrl;
+    cardImage.alt = placeName;
+    cardImage.addEventListener('click', function(){
+        toggleImagePopup(placeName, placeUrl);
+    });
     cardsContainer.prepend(newCard);
 }
 
+// Render initial cards
 initialPlaces.forEach(function (place) {
     addCard(place.name, place.link);
 });

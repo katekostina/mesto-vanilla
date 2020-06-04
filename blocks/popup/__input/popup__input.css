@@ -2,7 +2,7 @@
     font-family: 'Inter', 'Helvetica', sans-serif;
     font-style: normal;
     font-weight: normal;
-    font-size: 14px;
+    font-size: 12px;
     line-height: 30px;
     color: #000;
     border: none;
@@ -14,7 +14,19 @@
     font-family: 'Inter', 'Helvetica', sans-serif;
     font-style: normal;
     font-weight: normal;
-    font-size: 14px;
-    line-height: 17px;
+    font-size: 12px;
+    line-height: 15px;
     color: #C4C4C4;
+}
+
+@media screen and (min-width: 600px) {
+    .popup__input {
+        font-size: 14px;
+        line-height: 30px;
+    }
+
+    .popup__input::placeholder {
+        font-size: 14px;
+        line-height: 17px;
+    }
 }
