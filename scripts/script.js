@@ -31,7 +31,6 @@ const imagePopup = document.querySelector('#imagepopup');
 const imagePopupImage = document.querySelector('#imagepopupimage');
 const imagePopupCaption = document.querySelector('#imagepopupcaption');
 const closeImageButton = document.querySelector('#closeimagebutton');
-const transitionMilliseconds = 200;
 
 function toggleImagePopup(placeName, placeUrl) {
     if (imagePopup.classList.contains('image-popup_shown')) {
@@ -56,7 +55,7 @@ const cardsContainer = document.querySelector('.cards');
 function addCard(placeName, placeUrl){
     const cardTemplate = document.querySelector('#card-template').content;
     const newCard = cardTemplate.cloneNode(true);
-    const cardImage = newCard.querySelector('.card__image')
+    const cardImage = newCard.querySelector('.card__image');
     newCard.querySelector('.card__name').textContent = placeName;
     newCard.querySelector('.card__heart').addEventListener('click', function (evt) { 
         evt.target.classList.toggle('card__heart_active');
