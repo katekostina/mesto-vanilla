@@ -36,19 +36,19 @@ const transitionMilliseconds = 200;
 function toggleImagePopup(placeName, placeUrl) {
     if (imagePopup.classList.contains('image-popup_shown')) {
         imagePopup.classList.remove('image-popup_shown');
-        setTimeout(()=> { 
-            imagePopupImage.src = '';
-            imagePopupImage.alt = '';
-            imagePopupCaption.textContent = '';
-        }, transitionMilliseconds);
         return;
-    } 
+    }
+// Clear popup before opening
+    imagePopupImage.src = '';
+    imagePopupImage.alt = '';
+    imagePopupCaption.textContent = '';
+
     imagePopup.classList.add('image-popup_shown');
     imagePopupImage.src = placeUrl;
     imagePopupImage.alt = placeName;
     imagePopupCaption.textContent = placeName;
 }
-closeImageButton.addEventListener('click', toggleImagePopup)
+closeImageButton.addEventListener('click', toggleImagePopup);
 
 // Add new card 
 const cardsContainer = document.querySelector('.cards');
@@ -119,11 +119,7 @@ const placeNameInput = document.querySelector('#placename');
 const placeUrlInput = document.querySelector('#placeurl');
 
 function togglePlacePopup() {
-    if (placePopup.classList.contains('popup_shown')) {
-        placePopup.classList.remove('popup_shown');
-        return;
-    }
-    placePopup.classList.add('popup_shown');
+    placePopup.classList.toggle('popup_shown');
     placeNameInput.value = '';
     placeUrlInput.value = '';
 }
