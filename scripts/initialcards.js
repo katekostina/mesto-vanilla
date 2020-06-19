@@ -1,4 +1,4 @@
-// Initial cards
+// Initial cards with places
 const initialPlaces = [
     {
         name: 'Алтай',

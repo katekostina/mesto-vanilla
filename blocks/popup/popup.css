@@ -4,6 +4,9 @@
 @import url(./__heading/popup__heading.css);
 @import url(./__input/popup__input.css);
 @import url(./__submit-button/popup__submit-button.css);
+@import url(./__input/_error/popup__input_error.css);
+@import url(./__error-text/popup__error-text.css);
+@import url(./__error-text/_shown/popup__error-text_shown.css);
 
 .popup {
     visibility: hidden;

@@ -51,8 +51,10 @@
         <form class="popup__form" action="#" method="post" name="profileform">
             <button class="popup__close-button" id="closeeditbutton" type="button"></button>
             <h2 class="popup__heading">Редактировать профиль</h2>
-            <input class="popup__input" type="text" name="profilename" id="profilename" value="">
-            <input class="popup__input" type="text" name="profilecaption" id="profilecaption" value="">
+            <input class="popup__input" type="text" name="profilename" id="profilename" value="" required minlength="2" maxlength="40">
+            <span class='popup__error-text' id='profilename-error-text'></span>
+            <input class="popup__input" type="text" name="profilecaption" id="profilecaption" value="" required minlength="2" maxlength="200">
+            <span class='popup__error-text' id='profilecaption-error-text'></span>
             <button class="popup__submit-button" type="submit" id="saveeditbutton">Сохранить</button>
         </form>
     </article>
@@ -62,8 +64,10 @@
         <form class="popup__form" action="#" method="post" name="placeform">
             <button class="popup__close-button" type="button" id="closeplacebutton"></button>
             <h2 class="popup__heading">Новое место</h2>
-            <input class="popup__input" type="text" name="placename" id="placename" value="" placeholder="Название">
-            <input class="popup__input" type="url" name="placeurl" id="placeurl" value="" placeholder="Ссылка на картинку">
+            <input class="popup__input" type="text" name="placename" id="placename" value="" placeholder="Название" required minlength="1" maxlength="30">
+            <span class='popup__error-text' id='placename-error-text'></span>
+            <input class="popup__input" type="url" name="placeurl" id="placeurl" value="" placeholder="Ссылка на картинку" required>
+            <span class='popup__error-text' id='placeurl-error-text'></span>
             <button class="popup__submit-button" type="submit" id="saveplacebutton">Создать</button>
         </form>
     </article>
@@ -77,7 +81,8 @@
         </figure>
     </article>
 
+    <script src="./scripts/validate.js"></script>
     <script src="./scripts/initialcards.js"></script>
-    <script src="./scripts/utils.js"></script>
+    <script src="./scripts/index.js"></script>
 </body>
 </html>
