@@ -7,7 +7,7 @@ const validationConfig = {
     errorClass: 'popup__error-text_shown'
 };
 
-enableFormsValidation(validationConfig);
+enableValidation(validationConfig);
 
 
 // Handle image popup
