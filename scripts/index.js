@@ -1,4 +1,12 @@
-//  Validation
+import Card from './Card.js';
+import FormValidator from './FormValidator.js';
+import {initialPlaces} from './initialcards.js';
+
+// Global constants
+const cardsContainer = document.querySelector('.cards');
+const cardSelector = '#card-template';
+const editProfileForm = document.querySelector('#editprofilepopup .popup__form');
+const placeForm = document.querySelector('#placepopup .popup__form');
 const validationConfig = {
     formSelector: '.popup__form',
     inputSelector: '.popup__input',
@@ -7,7 +15,11 @@ const validationConfig = {
     errorClass: 'popup__error-text_shown'
 };
 
-enableValidation(validationConfig);
+// Creating form validators
+const editProfileFormValidator = new FormValidator(validationConfig, editProfileForm);
+const placeFormValidator = new FormValidator(validationConfig, placeForm);
+editProfileFormValidator.enableValidation();
+placeFormValidator.enableValidation();
 
 
 // Handle image popup
@@ -25,13 +37,14 @@ const closeImagePopupOnEscape = (event) => {
 };
 
 // Open/close image popup
-function toggleImagePopup(placeName, placeUrl) {
+export function toggleImagePopup(placeName, placeUrl) {
     if (imagePopup.classList.contains('image-popup_shown')) {
         imagePopup.classList.remove('image-popup_shown');
         document.removeEventListener('keydown', closeImagePopupOnEscape);
         return;
     }
-// Clear popup before opening
+
+    // Clear popup before opening
     imagePopupImage.src = '';
     imagePopupImage.alt = '';
     imagePopupCaption.textContent = '';
@@ -45,33 +58,6 @@ function toggleImagePopup(placeName, placeUrl) {
 
 closeImageButton.addEventListener('click', toggleImagePopup);
 imagePopupOverlay.addEventListener('click', toggleImagePopup);
-
-// Add new card
-const cardsContainer = document.querySelector('.cards');
-
-function addCard(placeName, placeUrl){
-    const cardTemplate = document.querySelector('#card-template').content;
-    const newCard = cardTemplate.cloneNode(true);
-    const cardImage = newCard.querySelector('.card__image');
-    newCard.querySelector('.card__name').textContent = placeName;
-    newCard.querySelector('.card__heart').addEventListener('click', function (evt) { 
-        evt.target.classList.toggle('card__heart_active');
-      });
-    newCard.querySelector('.card__delete').addEventListener('click', function (evt) {
-        evt.target.parentElement.remove();
-    });
-    cardImage.src = placeUrl;
-    cardImage.alt = placeName;
-    cardImage.addEventListener('click', function(){
-        toggleImagePopup(placeName, placeUrl);
-    });
-    cardsContainer.prepend(newCard);
-}
-
-// Render initial cards
-initialPlaces.forEach(function (place) {
-    addCard(place.name, place.link);
-});
 
 // Handle edit profile popup
 const editButton = document.querySelector('.profile__edit-button');
@@ -100,7 +86,7 @@ function toggleEditPopup() {
     editPopup.classList.add('popup_shown');
     nameInput.value = profileName.textContent;
     captionInput.value = profileCaption.textContent;
-    clearFormValidation(editPopup, validationConfig);
+    editProfileFormValidator.clearValidation();
     document.addEventListener('keydown', closeEditPopupOnEscape);
 }
 
@@ -141,13 +127,14 @@ function togglePlacePopup() {
     placePopup.classList.add('popup_shown');
     placeNameInput.value = '';
     placeUrlInput.value = '';
-    clearFormValidation(placePopup, validationConfig);
+    placeFormValidator.clearValidation();
     document.addEventListener('keydown', closePlacePopupOnEscape);
 }
 
 function createPlaceCard(event) {
     event.preventDefault();
-    addCard(placeNameInput.value, placeUrlInput.value);
+    const newCard = new Card(placeNameInput.value, placeUrlInput.value, cardSelector);
+    cardsContainer.prepend(newCard.render());
     togglePlacePopup();
 }
 
@@ -155,3 +142,12 @@ addButton.addEventListener('click', togglePlacePopup);
 closePlaceButton.addEventListener('click', togglePlacePopup);
 placePopupOverlay.addEventListener('click', togglePlacePopup);
 savePlaceButton.addEventListener('click', createPlaceCard);
+
+console.log("%c+", 'font-size: 1px; padding: 150px 126px; line-height: 0; background: url("https://www.dropbox.com/s/wlkqq5rtdwjpzqu/meu.jpg?dl=1"); background-size: 252px 300px; color: transparent;');
+
+
+// Render initial cards
+initialPlaces.forEach(function (place) {
+    const newCard = new Card(place.name, place.url, cardSelector);
+    cardsContainer.prepend(newCard.render());
+});
