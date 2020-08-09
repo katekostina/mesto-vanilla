@@ -65,21 +65,23 @@
             <button class="popup__close-button" type="button" id="closeplacebutton"></button>
             <h2 class="popup__heading">Новое место</h2>
             <input class="popup__input" type="text" name="placename" id="placename" value="" placeholder="Название" required minlength="1" maxlength="30">
-            <span class='popup__error-text' id='placename-error-text'></span>
+            <span class="popup__error-text" id='placename-error-text'></span>
             <input class="popup__input" type="url" name="placeurl" id="placeurl" value="" placeholder="Ссылка на картинку" required>
             <span class='popup__error-text' id='placeurl-error-text'></span>
             <button class="popup__submit-button" type="submit" id="saveplacebutton">Создать</button>
         </form>
     </article>
 
-    <article class="image-popup" id="imagepopup">
-        <div class="image-popup__overlay"></div>
-        <figure class="image-popup__container">
-            <button class="image-popup__close-button" id="closeimagebutton" type="button"></button>
-            <img class="image-popup__image" src="#" alt="" id="imagepopupimage">
-            <figcaption class="image-popup__caption" id="imagepopupcaption"></figcaption>
+    <article class="popup" id="imagepopup">
+        <div class="popup__overlay"></div>
+        <figure class="popup__container">
+            <button class="popup__close-button" id="closeimagebutton" type="button"></button>
+            <img class="popup__image" src="#" alt="" id="imagepopupimage">
+            <figcaption class="popup__caption" id="imagepopupcaption"></figcaption>
         </figure>
     </article>
+
+
     <script type="module" src="./scripts/index.js"></script>
 </body>
 </html>

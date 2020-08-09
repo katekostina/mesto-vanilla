@@ -7,6 +7,9 @@
 @import url(./__input/_error/popup__input_error.css);
 @import url(./__error-text/popup__error-text.css);
 @import url(./__error-text/_shown/popup__error-text_shown.css);
+@import url(./__caption/popup__caption.css);
+@import url(./__container/popup__container.css);
+@import url(./__image/popup__image.css);
 
 .popup {
     visibility: hidden;

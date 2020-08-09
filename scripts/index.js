@@ -22,42 +22,49 @@ editProfileFormValidator.enableValidation();
 placeFormValidator.enableValidation();
 
 
+// Pop-ups' shared functions >>>
+const closePopupOnEsc = (event) => {
+    const popupOpened = document.querySelector('.popup_shown');
+    if (event.code === 'Escape') {
+        closePopup(popupOpened);
+    }
+}
+
+const closePopup = (popup) => {
+    popup.classList.remove('popup_shown');
+    document.removeEventListener('keydown', closePopupOnEsc);
+}
+
+const openPopup = (popup) => {
+    popup.classList.add('popup_shown');
+    document.addEventListener('keydown', closePopupOnEsc);
+}
+// <<< 
+
+
 // Handle image popup
 const imagePopup = document.querySelector('#imagepopup');
 const imagePopupImage = document.querySelector('#imagepopupimage');
 const imagePopupCaption = document.querySelector('#imagepopupcaption');
 const closeImageButton = document.querySelector('#closeimagebutton');
-const imagePopupOverlay = imagePopup.querySelector('.image-popup__overlay');
-
-// Escape listener
-const closeImagePopupOnEscape = (event) => {
-    if (event.code === 'Escape') {
-        toggleImagePopup();
-    }
-};
+const imagePopupOverlay = imagePopup.querySelector('.popup__overlay');
 
 // Open/close image popup
-export function toggleImagePopup(placeName, placeUrl) {
-    if (imagePopup.classList.contains('image-popup_shown')) {
-        imagePopup.classList.remove('image-popup_shown');
-        document.removeEventListener('keydown', closeImagePopupOnEscape);
-        return;
-    }
-
+export function openImagePopup(placeName, placeUrl) {
     // Clear popup before opening
     imagePopupImage.src = '';
     imagePopupImage.alt = '';
     imagePopupCaption.textContent = '';
 
-    imagePopup.classList.add('image-popup_shown');
+    
     imagePopupImage.src = placeUrl;
     imagePopupImage.alt = placeName;
     imagePopupCaption.textContent = placeName;
-    document.addEventListener('keydown', closeImagePopupOnEscape);
+    openPopup(imagePopup);
 }
 
-closeImageButton.addEventListener('click', toggleImagePopup);
-imagePopupOverlay.addEventListener('click', toggleImagePopup);
+closeImageButton.addEventListener('click', () => {closePopup(imagePopup)});
+imagePopupOverlay.addEventListener('click', () => {closePopup(imagePopup)});
 
 // Handle edit profile popup
 const editButton = document.querySelector('.profile__edit-button');
@@ -71,35 +78,23 @@ const nameInput = document.querySelector('#profilename');
 const captionInput = document.querySelector('#profilecaption');
 const editPopupOverlay = editPopup.querySelector('.popup__overlay');
 
-const closeEditPopupOnEscape = (event) => {
-    if (event.code === 'Escape') {
-        toggleEditPopup();
-    }
-};
-
-function toggleEditPopup() {
-    if (editPopup.classList.contains('popup_shown')) {
-        editPopup.classList.remove('popup_shown');
-        document.removeEventListener('keydown', closeEditPopupOnEscape);
-        return;
-    } 
-    editPopup.classList.add('popup_shown');
+function openEditPopup() {
     nameInput.value = profileName.textContent;
     captionInput.value = profileCaption.textContent;
     editProfileFormValidator.clearValidation();
-    document.addEventListener('keydown', closeEditPopupOnEscape);
+    openPopup(editPopup);
 }
 
 function saveEdited(event) {
     event.preventDefault();
     profileName.textContent = nameInput.value;
     profileCaption.textContent = captionInput.value;
-    toggleEditPopup();
+    closePopup(editPopup);
 }
 
-editButton.addEventListener('click', toggleEditPopup);
-closeEditButton.addEventListener('click', toggleEditPopup);
-editPopupOverlay.addEventListener('click', toggleEditPopup);
+editButton.addEventListener('click', openEditPopup);
+closeEditButton.addEventListener('click', () => {closePopup(editPopup)});
+editPopupOverlay.addEventListener('click', () => {closePopup(editPopup)});
 saveEditButton.addEventListener('click', saveEdited);
 
 
@@ -112,42 +107,29 @@ const placeNameInput = document.querySelector('#placename');
 const placeUrlInput = document.querySelector('#placeurl');
 const placePopupOverlay = placePopup.querySelector('.popup__overlay');
 
-const closePlacePopupOnEscape = (event) => {
-    if (event.code === 'Escape') {
-        togglePlacePopup();
-    }
-};
-
-function togglePlacePopup() {
-    if (placePopup.classList.contains('popup_shown')) {
-        placePopup.classList.remove('popup_shown');
-        document.removeEventListener('keydown', closePlacePopupOnEscape);
-        return;
-    }
-    placePopup.classList.add('popup_shown');
+function openPlacePopup() {
     placeNameInput.value = '';
     placeUrlInput.value = '';
     placeFormValidator.clearValidation();
-    document.addEventListener('keydown', closePlacePopupOnEscape);
+    openPopup(placePopup);
 }
 
 function createPlaceCard(event) {
     event.preventDefault();
     const newCard = new Card(placeNameInput.value, placeUrlInput.value, cardSelector);
     cardsContainer.prepend(newCard.render());
-    togglePlacePopup();
+    closePopup(placePopup);
 }
 
-addButton.addEventListener('click', togglePlacePopup);
-closePlaceButton.addEventListener('click', togglePlacePopup);
-placePopupOverlay.addEventListener('click', togglePlacePopup);
+addButton.addEventListener('click', openPlacePopup);
+closePlaceButton.addEventListener('click', () => {closePopup(placePopup)});
+placePopupOverlay.addEventListener('click', () => {closePopup(placePopup)});
 savePlaceButton.addEventListener('click', createPlaceCard);
-
-console.log("%c+", 'font-size: 1px; padding: 150px 126px; line-height: 0; background: url("https://www.dropbox.com/s/wlkqq5rtdwjpzqu/meu.jpg?dl=1"); background-size: 252px 300px; color: transparent;');
-
 
 // Render initial cards
 initialPlaces.forEach(function (place) {
     const newCard = new Card(place.name, place.url, cardSelector);
     cardsContainer.prepend(newCard.render());
 });
+
+console.log("%c+", 'font-size: 1px; padding: 150px 126px; line-height: 0; background: url("https://www.dropbox.com/s/wlkqq5rtdwjpzqu/meu.jpg?dl=1"); background-size: 252px 300px; color: transparent;');

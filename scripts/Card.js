@@ -1,11 +1,11 @@
-import { toggleImagePopup } from './index.js';
+import { openImagePopup } from './index.js';
 
 export default class Card {
     constructor(name, url, templateSelector){
         this._templateSelector = templateSelector;
         this._name = name;
         this._url = url;
-        this._element;
+        this._element = null;
     }
 
     _getMarkup(){
@@ -14,7 +14,7 @@ export default class Card {
     }
 
     _handleImageClick() {
-        toggleImagePopup(this._name, this._url);
+        openImagePopup(this._name, this._url);
     }
 
     _handleHeartClick(evt) {
