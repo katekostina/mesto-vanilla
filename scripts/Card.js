@@ -1,20 +1,19 @@
-import { openImagePopup } from './index.js';
-
 export default class Card {
-    constructor(name, url, templateSelector){
-        this._templateSelector = templateSelector;
+    constructor(name, url, cardSelector, handleCardClick){
+        this._cardSelector = cardSelector;
         this._name = name;
         this._url = url;
+        this._handleCardClick = handleCardClick;
         this._element = null;
     }
 
     _getMarkup(){
-        const cardMarkup = document.querySelector(this._templateSelector).content.cloneNode(true);
+        const cardMarkup = document.querySelector(this._cardSelector).content.cloneNode(true);
         return cardMarkup;
     }
 
     _handleImageClick() {
-        openImagePopup(this._name, this._url);
+        this._handleCardClick();
     }
 
     _handleHeartClick(evt) {
