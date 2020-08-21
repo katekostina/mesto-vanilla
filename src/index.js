@@ -1,10 +1,11 @@
-import Card from './Card.js';
-import FormValidator from './FormValidator.js';
-import Section from './Section.js';
-import PopupWithImage from './PopupWithImage.js';
-import PopupWithForm from './PopupWithForm.js';
-import UserInfo from './UserInfo.js';
-import {initialPlaces} from './initialcards.js';
+import './pages/index.css';
+import Card from './scripts/Card.js';
+import FormValidator from './scripts/FormValidator.js';
+import Section from './scripts/Section.js';
+import PopupWithImage from './scripts/PopupWithImage.js';
+import PopupWithForm from './scripts/PopupWithForm.js';
+import UserInfo from './scripts/UserInfo.js';
+import {initialPlaces} from './scripts/initialcards.js';
 
 
 // Global constants
@@ -99,4 +100,4 @@ const cardsSection = new Section(
 );
 cardsSection.renderItems();
 
-// console.log("%c+", 'font-size: 1px; padding: 150px 126px; line-height: 0; background: url("https://www.dropbox.com/s/wlkqq5rtdwjpzqu/meu.jpg?dl=1"); background-size: 252px 300px; color: transparent;');
+console.log("%c+", 'font-size: 1px; padding: 150px 126px; line-height: 0; background: url("https://www.dropbox.com/s/wlkqq5rtdwjpzqu/meu.jpg?dl=1"); background-size: 252px 300px; color: transparent;');
