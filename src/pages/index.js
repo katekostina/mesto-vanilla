@@ -1,11 +1,11 @@
-import './pages/index.css';
-import Card from './scripts/Card.js';
-import FormValidator from './scripts/FormValidator.js';
-import Section from './scripts/Section.js';
-import PopupWithImage from './scripts/PopupWithImage.js';
-import PopupWithForm from './scripts/PopupWithForm.js';
-import UserInfo from './scripts/UserInfo.js';
-import {initialPlaces} from './scripts/initialcards.js';
+import './index.css';
+import Card from '../components/Card.js';
+import FormValidator from '../components/FormValidator.js';
+import Section from '../components/Section.js';
+import PopupWithImage from '../components/PopupWithImage.js';
+import PopupWithForm from '../components/PopupWithForm.js';
+import UserInfo from '../components/UserInfo.js';
+import {initialPlaces} from '../utils/initialcards.js';
 
 
 // Global constants
@@ -27,23 +27,29 @@ const editButton = document.querySelector('.profile__edit-button');
 const userInfo = new UserInfo('.profile__name', '.profile__caption');
 
 // Creating popup handlers
-const imagePopup = new PopupWithImage('#imagepopup');
+const imagePopup = new PopupWithImage('#imagepopup', '.popup__image', '.popup__caption');
 imagePopup.setEventListeners();
+
+// Function that creates new card
+const createCard = (name, url) => {
+    const newCard = new Card(
+        name,
+        url,
+        cardSelector,
+        (cardname, cardurl) => {
+            imagePopup.open(cardname, cardurl);
+        }  
+    );
+    cardsSection.addItem(newCard.render());
+};
+
 
 const newPlacePopup = new PopupWithForm(
     '#placepopup', 
     {
         handleSubmit: (evt, { placename, placeurl }) => {
             evt.preventDefault();
-            const newCard = new Card(
-                placename,
-                placeurl,
-                cardSelector, 
-                () => {
-                    imagePopup.open(placename, placeurl);
-                });
-            cardsSection.addItem(newCard.render());
-            newPlacePopup.close();
+            createCard(placename, placeurl);
         },
         clearValidation: () => {
             newPlaceFormValidator.clearValidation();
@@ -58,7 +64,6 @@ const editProfilePopup = new PopupWithForm(
         handleSubmit: (evt, { profilename, profilecaption }) => {
             evt.preventDefault();
             userInfo.setUserInfo(profilename, profilecaption);
-            editProfilePopup.close();
         },
         clearValidation: () => {
             editProfileFormValidator.clearValidation();
@@ -86,14 +91,7 @@ const cardsSection = new Section(
     {
         items: initialPlaces,
         renderer: (item) => {
-            const newCard = new Card(
-                item.name, 
-                item.url, 
-                cardSelector, 
-                () => {
-                    imagePopup.open(item.name, item.url);
-                });
-            cardsSection.addItem(newCard.render());
+            createCard(item.name, item.url);
         }
     },
     cardsContainerSelector
