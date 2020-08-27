@@ -1,10 +1,17 @@
 export default class Card {
-    constructor(name, url, cardSelector, handleCardClick){
+    constructor(name, url, cardSelector, { handleCardClick, handleDelete, handleLike}, likes, cardOwnerId, userId, cardId){
         this._cardSelector = cardSelector;
         this._name = name;
         this._url = url;
         this._handleCardClick = handleCardClick;
+        this._handleDelete = handleDelete;
         this._element = null;
+        this._likes = likes;
+        this._cardOwnerId = cardOwnerId;
+        this._userId = userId;
+        this._cardId = cardId;
+        this._handleLike = handleLike;
+        this._isLiked = false;
     }
 
     _getMarkup(){
@@ -18,10 +25,12 @@ export default class Card {
 
     _handleHeartClick(cardHeartButton) {
         cardHeartButton.classList.toggle('card__heart_active');
+        this._handleLike(this._cardId, this._isLiked);
+        this._isLiked = !this._isLiked;
     }
 
     _handleTrashClick(cardDeleteButton) {
-        cardDeleteButton.parentElement.remove();
+        this._handleDelete(cardDeleteButton.parentElement, this._cardId);
     }
 
     _setEventListeners(cardImage, cardHeartButton, cardDeleteButton) {
@@ -33,9 +42,16 @@ export default class Card {
             this._handleHeartClick(cardHeartButton);
         });
 
-        cardDeleteButton.addEventListener('click', () => {
-            this._handleTrashClick(cardDeleteButton);
-        });
+        if (cardDeleteButton) {
+            cardDeleteButton.addEventListener('click', () => {
+                this._handleTrashClick(cardDeleteButton);
+            });
+        }
+    }
+
+    updateLikes(likes) {
+        this._likes = likes;
+        this._likesNumberElement.textContent = this._likes;
     }
 
     render() {
@@ -44,9 +60,16 @@ export default class Card {
         cardImage.src = this._url;
         cardImage.alt = this._name;
         this._element.querySelector('.card__name').textContent = this._name;
+        this._likesNumberElement = this._element.querySelector('.card__likes');
+        this._likesNumberElement.textContent = this._likes;
         const cardHeartButton = this._element.querySelector('.card__heart');
         const cardDeleteButton = this._element.querySelector('.card__delete');
-        this._setEventListeners(cardImage, cardHeartButton, cardDeleteButton);
+        if (this._cardOwnerId == this._userId) {
+            this._setEventListeners(cardImage, cardHeartButton, cardDeleteButton);
+        } else {
+            cardDeleteButton.remove();
+            this._setEventListeners(cardImage, cardHeartButton);
+        }
         return this._element;
-    }    
+    }
 }

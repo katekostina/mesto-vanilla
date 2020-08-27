@@ -6,6 +6,8 @@
 @import url(./__edit-button/profile__edit-button.css);
 @import url(./__caption/profile__caption.css);
 @import url(./__add-button/profile__add-button.css);
+@import url(./__edit-avatar-button/profile__edit-avatar-button.css);
+@import url(./__avatar-container/profile__avatar-container.css);
 
 .profile {
     display: flex;

@@ -6,4 +6,12 @@
     font-size: 12px;
     line-height: 15px;
     visibility: hidden;
+    margin: 0;
+    min-height: 10px;
+}
+
+@media screen and (min-width: 600px) {
+    .popup__error-text {
+        min-height: 22px;
+    }
 }

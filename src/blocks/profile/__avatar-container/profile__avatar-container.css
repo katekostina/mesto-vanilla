@@ -1,0 +1,14 @@
+.profile__avatar-container {
+    width: 120px;
+    height: 120px;
+    font-size: 0px;
+    line-height: 0px;
+    margin-bottom: 17px;
+    position: relative;
+}
+
+@media screen and (min-width: 1025px) {
+    .profile__avatar-container {
+        margin-bottom: 0;
+    }
+}

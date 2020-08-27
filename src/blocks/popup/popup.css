@@ -10,6 +10,7 @@
 @import url(./__caption/popup__caption.css);
 @import url(./__container/popup__container.css);
 @import url(./__image/popup__image.css);
+@import url(./__bigtext/popup__bigtext.css);
 
 .popup {
     visibility: hidden;
