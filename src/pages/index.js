@@ -199,16 +199,17 @@ const confirmDeletePopup = new PopupWithForm(
       evt.preventDefault();
       // Delete card on server
       confirmDeletePopup.renderLoading(true, "Удаление...");
-      api
-        .deleteCard(cardId)
+      api.deleteCard(cardId)
+        .then(() => {
+          // Remove card element from DOM
+          card.remove();
+        })
         .catch((error) => {
           console.log(error);
         })
         .finally(() => {
           confirmDeletePopup.renderLoading(false);
           confirmDeletePopup.close();
-          // Remove card element from DOM
-          card.remove();
         });
     },
     clearValidation: () => {},
