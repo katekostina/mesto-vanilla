@@ -43,7 +43,7 @@ const userInfo = new UserInfo(
 );
 
 // Function that creates new card and renders it to the section
-const createCard = (name, link, likes, cardOwnerId, userId, cardId) => {
+const createCard = (name, link, likes, cardOwnerId, userId, cardId, likesArray) => {
   const newCard = new Card(
     name,
     link,
@@ -80,7 +80,8 @@ const createCard = (name, link, likes, cardOwnerId, userId, cardId) => {
     likes,
     cardOwnerId,
     userId,
-    cardId
+    cardId,
+    likesArray
   );
   cardsSection.addItem(newCard.render());
 };
@@ -112,7 +113,8 @@ const newPlacePopup = new PopupWithForm(
             item.likes.length,
             item.owner._id,
             userInfo.getUserId(),
-            item._id
+            item._id,
+            item.likes
           );
         })
         .catch((error) => {
@@ -255,7 +257,7 @@ Promise.all([api.getUserProfile(), api.getInitialCards()])
     userInfo.setUserId(userData._id);
     cardsSection = new Section(
       {
-        items: initialCards,
+        items: initialCards.reverse(),
         renderer: (item) => {
           createCard(
             item.name,
@@ -263,7 +265,8 @@ Promise.all([api.getUserProfile(), api.getInitialCards()])
             item.likes.length,
             item.owner._id,
             userInfo.getUserId(),
-            item._id
+            item._id,
+            item.likes
           );
         },
       },

@@ -1,3 +1,12 @@
+const isLikedByUser = (likesArray, userId) => {
+  for (let like of likesArray) {
+    if (like._id == userId) {
+      return true;
+    }
+  };
+  return false;
+};
+
 export default class Card {
   constructor(
     name,
@@ -7,7 +16,8 @@ export default class Card {
     likes,
     cardOwnerId,
     userId,
-    cardId
+    cardId,
+    likesArray
   ) {
     this._cardSelector = cardSelector;
     this._name = name;
@@ -20,7 +30,7 @@ export default class Card {
     this._userId = userId;
     this._cardId = cardId;
     this._handleLike = handleLike;
-    this._isLiked = false;
+    this._isLiked = isLikedByUser(likesArray, this._userId);
   }
 
   _getMarkup() {
@@ -74,6 +84,9 @@ export default class Card {
     this._likesNumberElement = this._element.querySelector(".card__likes");
     this._likesNumberElement.textContent = this._likes;
     const cardHeartButton = this._element.querySelector(".card__heart");
+    if (this._isLiked) {
+      cardHeartButton.classList.add("card__heart_active");
+    }
     const cardDeleteButton = this._element.querySelector(".card__delete");
     if (this._cardOwnerId == this._userId) {
       this._setEventListeners(cardImage, cardHeartButton, cardDeleteButton);
