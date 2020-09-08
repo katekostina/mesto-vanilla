@@ -13,7 +13,7 @@
 * HTML, CSS, JavaScript.
 
 **Github Pages**
-* [Ссылка на сайт, размещённый на Github Pages](https://katekostina.github.io/mesto/)
+* [Ссылка на сайт, размещённый на Github Pages](https://katekostina.github.io/mesto/index.html)
 
 **Figma**
 * [Ссылка на макет в Figma](https://www.figma.com/file/StZjf8HnoeLdiXS7dYrLAh/JavaScript.-Sprint-4)
