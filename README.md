@@ -8,3 +8,6 @@
 
 **Опубликован**
 * https://katekostina.github.io/mesto/index.html
+
+<img align="left" width="600px" src="https://github.com/katekostina/mesto/blob/main/screenshot.png"> <br />
+
